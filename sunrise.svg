@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <rect width="1600" height="900" fill="#514653"/>
+  <rect y="180" width="1600" height="180" fill="#c8607a"/>
+  <rect y="360" width="1600" height="180" fill="#f4a37a"/>
+  <rect y="540" width="1600" height="120" fill="#ffd58a"/>
+  <circle cx="800" cy="660" r="150" fill="#fff1c9"/>
+  <rect y="660" width="1600" height="240" fill="#252a40"/>
+</svg>
