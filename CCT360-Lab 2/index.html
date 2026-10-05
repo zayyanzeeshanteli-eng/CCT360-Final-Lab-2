@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 2: Night Room</title>
+  <!-- External stylesheet (the recommended way from Class 2) -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div id="header">
+    <h1>Night Room</h1>
+    <p><em>Lab 2: Events in Motion</em></p>
+    <p class="instructions">
+      Click the <strong>lamp</strong> &middot; Move your <strong>mouse</strong> &middot;
+      Hover over the <strong>cat</strong> &middot; Press <strong>1 2 3 4</strong> to change the sky &middot;
+      Press <strong>R G B</strong> to add books, <strong>C</strong> to clear &middot;
+      <strong>Resize</strong> the window &middot; <strong>Scroll</strong> down
+    </p>
+  </div>
+
+  <!-- ===== MAIN AREA (flexbox: room + side panel) ===== -->
+  <div id="main">
+
+    <!-- The room scene: position relative, so the objects inside can use position absolute -->
+    <div id="room">
+
+      <!-- Window with the sky -->
+      <div id="skyWindow">
+        <span id="skyIcon">🌙</span>
+        <p id="stars">✦ &nbsp; ✧ &nbsp; ✦</p>
+      </div>
+
+      <!-- Bookshelf (books are added here with JavaScript) -->
+      <div id="shelf">
+        <div class="book red"></div>
+        <div class="book green"></div>
+        <div class="book blue"></div>
+      </div>
+
+      <!-- Floor -->
+      <div id="floor"></div>
+
+      <!-- Desk with the lamp on top -->
+      <div id="desk"></div>
+      <button id="lamp" title="Click to turn the lamp on or off">💡</button>
+
+      <!-- Cat -->
+      <div id="cat">🐈</div>
+      <p id="catSays"></p>
+
+    </div>
+
+    <!-- Side panel with live information -->
+    <div id="panel">
+      <h2>Room Status</h2>
+      <p id="lampStatus">Lamp: <strong>OFF</strong></p>
+      <p id="skyStatus">Sky: Night</p>
+      <p id="lastKey">Last key: none yet</p>
+      <p id="mousePos">Mouse: move it around!</p>
+      <p id="shelfMessage">Books: 3</p>
+
+      <h2>Controls</h2>
+      <p>No keyboard? Use these buttons:</p>
+      <!-- These buttons use inline onclick (the first method we learned in Class 3) -->
+      <div class="buttonRow">
+        <button onclick="setSky('sunrise')">Sunrise</button>
+        <button onclick="setSky('day')">Day</button>
+        <button onclick="setSky('sunset')">Sunset</button>
+        <button onclick="setSky('night')">Night</button>
+      </div>
+      <div class="buttonRow">
+        <button onclick="addBook('red')">Red book</button>
+        <button onclick="addBook('green')">Green book</button>
+        <button onclick="addBook('blue')">Blue book</button>
+        <button onclick="clearBooks()">Clear</button>
+      </div>
+
+      <h2>Window</h2>
+      <p id="windowSize">Window:</p>
+      <p id="layoutStatus">Layout:</p>
+      <p id="scrollStatus">Scrolled: 0px</p>
+
+      <h2>Browser Info</h2>
+      <p class="small" id="browserInfo"></p>
+      <p id="historyInfo"></p>
+      <button id="inspireButton">Get inspired (opens Patatap)</button>
+
+      <h2>Event Log</h2>
+      <div id="eventLog"></div>
+    </div>
+
+  </div>
+
+  <!-- ===== PARALLAX SECTION (CSS parallax from Class 2) ===== -->
+  <div class="parallax" id="p1">
+    <div class="caption"><span>The night is quiet...</span></div>
+  </div>
+
+  <div class="textSection">
+    <h2>How to Interact</h2>
+    <ul>
+      <li><strong>Click</strong> the lamp to turn it on or off.</li>
+      <li><strong>Move your mouse</strong> and a firefly follows you.</li>
+      <li><strong>Hover</strong> over the cat to say hello.</li>
+      <li>Press <strong>1, 2, 3 or 4</strong> to change the sky (sunrise, day, sunset, night).</li>
+      <li>Press <strong>R, G or B</strong> to add a red, green or blue book. Press <strong>C</strong> to clear them.</li>
+      <li><strong>Resize</strong> the window to switch to the compact layout.</li>
+      <li><strong>Scroll</strong> to fill the progress bar at the top.</li>
+      <li>Reload the page: the lamp and sky are <strong>remembered</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="parallax" id="p2">
+    <div class="caption"><span>...the city keeps its lights on...</span></div>
+  </div>
+
+  <div class="textSection">
+    <h2>About This Project</h2>
+    <p>
+      Night Room is a small interactive bedroom that responds to the user.
+      It uses the DOM to change the HTML and CSS of the page, event listeners to react to the
+      mouse, keyboard, and window, and the BOM to talk to the browser itself
+      (window size, scrolling, localStorage, browser info, history, and opening new tabs).
+    </p>
+  </div>
+
+  <div class="parallax" id="p3">
+    <div class="caption"><span>...until the sun comes up.</span></div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div id="footer">
+    <p>Created by [Your Name] &mdash; CCT 360 Lab 2</p>
+    <p class="small">You are here: <span id="locationText"></span></p>
+    <button id="backButton">&larr; Back</button>
+    <p class="small">Images: original SVG illustrations made for this project. Emoji characters display using your device's built-in emoji font.</p>
+  </div>
+
+  <!-- Placed at the end so they show on top of everything else -->
+  <div id="progressBar"></div>
+  <div id="firefly">✨</div>
+
+  <!-- External JavaScript file (the preferred method from Class 3) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
